@@ -1,0 +1,27 @@
+package com.example.countaries
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import coil.Coil.imageLoader
+import com.example.countaries.databinding.ActivityMainBinding
+
+class MainActivity : AppCompatActivity() {
+    lateinit var binding: ActivityMainBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        val countries = mutableListOf<Country>()
+        countries.add(Country("https://th.bing.com/th/id/OIP.hqqy0WnnqzflX-0k4eLCfAHaE8?pid=ImgDet&rs=1", "Ghana", "Ghana officially the Republic of Ghana, is a country in West Africa.[9] It abuts the Gulf of Guinea and the Atlantic Ocean to the south, sharing borders with Ivory Coast in the west, Burkina Faso in the north, and Togo in the east.[10] Ghana covers an area of 238,535 km2 (92,099 sq mi), spanning diverse biomes that range from coastal savannas to tropical rainforests. With nearly 31 million inhabitants (according to the 2021 census), Ghana is the second-most populous country in West Africa, after Nigeria. The capital and largest city is Accra; other major cities are Kumasi, Tamale, and Sekondi-Takoradi.", false))
+        countries.add(Country("https://th.bing.com/th/id/R.1accb4e2e04f3c6afcc7c7904c567550?rik=TwIvlMIC%2fg0SJQ&riu=http%3a%2f%2fwww.theflagman.co.uk%2fwp-content%2fuploads%2f2017%2f03%2fflag-of-Romania.jpg&ehk=x%2fdY5fqESPcKSb%2fO0mi0SMYaawDmCOQWK%2b8WfdC4Y40%3d&risl=&pid=ImgRaw&r=0", "Romania", "Settlement in what is now Romania began in the Lower Paleolithic followed by written records attesting the kingdom of Dacia, its conquest, and subsequent Romanization by the Roman Empire during late antiquity. The modern Romanian state was formed in 1859 through a personal union of the Danubian Principalities of Moldavia and Wallachia. The new state, officially named Romania since 1866, gained independence from the Ottoman Empire in 1877.", false))
+        countries.add(Country("https://th.bing.com/th/id/OIP.TOrwVlmqvLlXHYLn-XzyEwHaE8?pid=ImgDet&rs=1", "Laos", "Present-day Laos traces its historic and cultural identity to Lan Xang, which existed from the 13th century to the 18th century as one of the largest kingdoms in Southeast Asia.[13] Because of its central geographical location in Southeast Asia, the kingdom became a hub for overland trade and became wealthy economically and culturally.", false))
+        countries.add(Country("https://flagpedia.net/data/flags/ultra/ug.png", "Uganda", "Uganda is named after the Buganda kingdom, which encompasses a large portion of the south of the country, including the capital Kampala and whose language Luganda is widely spoken throughout the country. From 1894, the area was ruled as a protectorate by the United Kingdom, which established administrative law across the territory. Uganda gained independence from the UK on 9 October 1962. ", false))
+        countries.add(Country("https://th.bing.com/th/id/R.240ddf6155c922e5d0bf1b2c46b86c3a?rik=B1pE8qj9X35xMA&riu=http%3a%2f%2fepmgaa.media.clients.ellingtoncms.com%2fimg%2fphotos%2f2019%2f03%2f28%2fFlag_of_Guyana.svg.png&ehk=vW8ogehAyc%2b%2fOCHDJya3u7ZgQ8cIUCf5tiHnTkdXNK4%3d&risl=&pid=ImgRaw&r=0", "Guyana", "Guyana,[9] is a country on the northern mainland of South America. Guyana is an indigenous word which means \"Land of Many Waters\". The capital city is Georgetown. Guyana is bordered by the Atlantic Ocean to the north, Brazil to the south and southwest, Venezuela to the west, and Suriname to the east. With 215,000 km2 (83,000 sq mi), Guyana is the third-smallest sovereign state by area in mainland South America after Uruguay and Suriname, and is the second-least populous sovereign state in South America after Suriname; it is also one of the least densely populated countries on Earth.", false))
+        countries.add(Country("https://th.bing.com/th/id/OIP.eU9IcE7fXcKCRtDiw-3IqQHaDt?pid=ImgDet&rs=1", "Oman", "From the 17th century, the Omani Sultanate was an empire, vying with the Portuguese and British empires for influence in the Persian Gulf and Indian Ocean. At its peak in the 19th century, Omani influence and control extended across the Strait of Hormuz to Iran and Pakistan, and as far south as Zanzibar.[12] When its power declined in the 20th century, the sultanate came under the influence of the United Kingdom. For over 300 years, the relations built between the two empires were based on mutual benefit.", false))
+        countries.add(Country("https://m0.joe.co.uk/wp-content/uploads/2016/08/17155310/Flag_of_Kyrgyzstan.svg_.png", "Kyrgyzistan", "Kyrgyzstan[a] or the Kyrgyz Republic[b] is a landlocked country in Central Asia. Kyrgyzstan is bordered by Kazakhstan to the north, Uzbekistan to the west, Tajikistan to the south, and the People's Republic of China to the east. Its capital and largest city is Bishkek.", false))
+        countries.add(Country("https://flagpedia.net/data/flags/w1600/sy.png", "Syria", "The name \"Syria\" historically referred to a wider region, broadly synonymous with the Levant, and known in Arabic as al-Sham. The modern state encompasses the sites of several ancient kingdoms and empires, including the Eblan civilization of the 3rd millennium BC. Aleppo and the capital city Damascus are among the oldest continuously inhabited cities in the world", false))
+        val adapter = CountryAdapter(this, countries)
+        binding.lv.adapter = adapter
+
+    }
+}
